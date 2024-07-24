@@ -1,0 +1,3 @@
+class UserLink < ApplicationRecord
+
+end
