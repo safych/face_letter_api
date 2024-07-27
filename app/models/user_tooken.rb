@@ -1,3 +1,0 @@
-class UserToken < ApplicationRecord
-
-end
