@@ -5,6 +5,13 @@ en:
 
   controllers:
     sessions:
-      user_token_successfully_deleted: "User's token successfully deleted"
-      failed_to_delete_user_token: "Failed to delete user's token"
-      unauthorized: "Unauthorized"
+      successful_exit_from_the_account: "Successful exit from the account"
+      unsuccessful_exit_from_the_account: "Unsuccessful exit from the account"
+      successful_sign_in: "Successful sign in"
+    registrations:
+      successful_sign_up: "Successful sign up"
+  
+  services:
+    session_creator:
+      user_not_found: "User not found"
+      invalid_password: "Invalid password"
