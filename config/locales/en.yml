@@ -8,10 +8,23 @@ en:
       successful_exit_from_the_account: "Successful exit from the account"
       unsuccessful_exit_from_the_account: "Unsuccessful exit from the account"
       successful_sign_in: "Successful sign in"
+    
     registrations:
       successful_sign_up: "Successful sign up"
+
+    user_links:
+      user_link_was_successful_created: "User link was successful created"
+
+    application:
+      unauthorized: "Unauthorized"
+
   
   services:
     session_creator:
       user_not_found: "User not found"
       invalid_password: "Invalid password"
+
+    user_link_creator:
+      error_limit_user_links: "The number of user links is greater than allowed!"
+      user_not_found: "User not found"
+      user_link_was_not_successful_created: "User link wasn't successful created"
