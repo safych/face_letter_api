@@ -12,7 +12,7 @@ class UserLinksController < ApplicationController
   end
 
   def create
-    user_link_creator = UserLinkCreator.new(user_link_param, get_token)
+    user_link_creator = UserLinkCreator.new(user_link_param[:url], get_token)
     user_link_creator.call
     unless user_link_creator.error
       render json: {
