@@ -44,6 +44,10 @@ group :development, :test do
   gem "byebug"
   # Library for generating fake data such as names, addresses, and phone numbers.
   gem "faker"
+  # Use Rspec for testing
+  gem "rspec-rails"
+  # Use Factory bot for fixtures replacement
+  gem "factory_bot_rails"
 end
 
 group :development do
