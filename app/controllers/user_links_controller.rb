@@ -4,7 +4,7 @@ class UserLinksController < ApplicationController
 
   def index
     user_links = UserLink.where(user_id: get_user_id).select(:url, :id)
-    if user_links
+    unless user_links.empty?
       render json: { data: user_links }, status: :ok
     else
       render jsin: { data: [] }, status: :no_content
