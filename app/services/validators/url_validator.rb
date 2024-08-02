@@ -4,7 +4,7 @@ class UrlValidator
   attr_reader :url
 
   validates :url, format: { 
-    with: /\A#{URI::regexp(['http', 'https'])}\z/,
+    with: /\A#{URI::regexp(['https'])}\z/,
     message: I18n.t("validators.incorrect_format")
   }
 

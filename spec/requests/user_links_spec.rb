@@ -40,7 +40,7 @@ RSpec.describe "Create user link", type: :request do
   end
 
   it "create user link, get message about it and status 201" do
-    post "/user_links", params: { user_link: { url: Faker::Internet.url } },
+    post "/user_links", params: { user_link: { url: Faker::Internet.url(scheme: 'https') } },
                         headers: { "Authorization" => @user_token.token }
 
     expect(response.status).to equal(201)
@@ -68,7 +68,7 @@ RSpec.describe "Create user link", type: :request do
     create(:user_link, user_id: @user.id)
     create(:user_link, user_id: @user.id)
 
-    post "/user_links", params: { user_link: { url: Faker::Internet.url } },
+    post "/user_links", params: { user_link: { url: Faker::Internet.url(scheme: 'https') } },
                         headers: { "Authorization" => @user_token.token }
 
     expect(response.status).to equal(422)
@@ -76,7 +76,7 @@ RSpec.describe "Create user link", type: :request do
   end
 
   it "try to create user link without token, get error and status 401" do
-    post "/user_links", params: { user_link: { url: Faker::Internet.url } }
+    post "/user_links", params: { user_link: { url: Faker::Internet.url(scheme: 'https') } }
 
     expect(response.status).to equal(401)
     expect(response.body).to include("error", I18n.t("controllers.application.unauthorized"))
@@ -91,7 +91,7 @@ RSpec.describe "Update user link", type: :request do
   end
 
   it "update user link, get message about it and status 200" do
-    put "/user_links/#{@user_link.id}", params: { user_link: { url: Faker::Internet.url } },
+    put "/user_links/#{@user_link.id}", params: { user_link: { url: Faker::Internet.url(scheme: 'https') } },
                                         headers: { "Authorization" => @user_token.token }
 
     expect(response.status).to equal(200)
@@ -107,7 +107,7 @@ RSpec.describe "Update user link", type: :request do
   end
 
   it "try to update user link without token, get error and status 401" do
-    put "/user_links/#{@user_link.id}", params: { user_link: { url: Faker::Internet.url } }
+    put "/user_links/#{@user_link.id}", params: { user_link: { url: Faker::Internet.url(scheme: 'https') } }
 
     expect(response.status).to equal(401)
     expect(response.body).to include("error", I18n.t("controllers.application.unauthorized"))

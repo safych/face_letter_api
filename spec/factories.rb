@@ -14,6 +14,6 @@ FactoryBot.define do
 
   factory :user_link do
     association :user
-    url { Faker::Internet.url }
+    url { Faker::Internet.url(scheme: 'https') }
   end
 end
