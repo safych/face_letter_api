@@ -38,3 +38,12 @@ en:
     user_link_updater:
       user_link_was_not_successful_updated: "User link wasn't successful updated"
       this_link_is_not_owned_by_the_user: "This link is not owned by the user"
+
+    user_updater:
+      not_correct_password: "Password is not correct"
+      not_correct_token: "Token is not correct"
+      user_not_found: "User is not found"
+      user_password_successful_updated: "The user's password updated successful!"
+      user_password_did_not_update: "The user's password didn't update"
+      user_data_successful_updated: "The user's data updated successful!"
+      user_data_did_not_update: "The user's data didn't update"
