@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Get all user's links" do
+RSpec.describe "Get all user's links", type: :request do
   before do
     @user = create(:user)
     @user_token = create(:user_token, user_id: @user.id)
