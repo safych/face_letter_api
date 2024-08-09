@@ -10,12 +10,12 @@ class UserUpdater
   end
 
   def call
-    get_user
+    search_user_by_token
   end
 
   private
 
-  def get_user
+  def search_user_by_token
     user_token = UserToken.find_by(token: @token)
     if user_token
       @user = User.find(user_token.user_id)
