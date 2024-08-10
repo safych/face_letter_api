@@ -48,6 +48,8 @@ group :development, :test do
   gem "rspec-rails"
   # Use Factory bot for fixtures replacement
   gem "factory_bot_rails"
+  # Use Letter opener for preview email in the default browser instead of sending it
+  gem "letter_opener"
 end
 
 group :development do
