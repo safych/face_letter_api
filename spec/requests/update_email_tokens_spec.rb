@@ -12,7 +12,7 @@ RSpec.describe "Update user's update_email_token", type: :request do
 
     @user.reload
     expect(response.status).to equal(200)
-    expect(response.body).to include(I18n.t("services.update_email_token_creator.token_was_updated"))
+    expect(response.body).to include(I18n.t("services.update_email_token_updater.token_was_updated"))
     expect(@user.update_email_token).not_to eq(nil)
     expect(@user.update_email_sent_at).not_to eq(nil)
   end
@@ -23,7 +23,7 @@ RSpec.describe "Update user's update_email_token", type: :request do
 
     @user.reload
     expect(response.status).to equal(422)
-    expect(response.body).to include(I18n.t("services.update_email_token_creator.not_correct_password"))
+    expect(response.body).to include(I18n.t("services.update_email_token_updater.not_correct_password"))
     expect(@user.update_email_token).to eq(nil)
     expect(@user.update_email_sent_at).to eq(nil)
   end

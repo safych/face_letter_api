@@ -20,10 +20,10 @@ class UpdateEmailTokenUpdater
       if @user
         send_token_for_update_email
       else
-        @message[:error] = I18n.t("services.update_email_token_creator.user_not_found")
+        @message[:error] = I18n.t("services.update_email_token_updater.user_not_found")
       end
     else
-      @message[:error] = I18n.t("services.update_email_token_creator.not_correct_token")
+      @message[:error] = I18n.t("services.update_email_token_updater.not_correct_token")
     end
   end
 
@@ -32,7 +32,7 @@ class UpdateEmailTokenUpdater
       @user.update_email_token = SecureRandom.hex(3)
       @user.update_email_sent_at = DateTime.now
       if @user.save
-        @message[:done] = I18n.t("services.update_email_token_creator.token_was_updated")
+        @message[:done] = I18n.t("services.update_email_token_updater.token_was_updated")
         UserMailer.update_email(@user.email, @user.update_email_token).deliver_now
       end
     end
@@ -40,7 +40,7 @@ class UpdateEmailTokenUpdater
 
   def current_password_verification
     return true if @user.authenticate(@param[:current_password])
-    @message[:error] = I18n.t("services.update_email_token_creator.not_correct_password")
+    @message[:error] = I18n.t("services.update_email_token_updater.not_correct_password")
     false
   end
 end
