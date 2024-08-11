@@ -14,6 +14,12 @@ RSpec.describe "Update user's reset_password_token", type: :request do
     expect(response.body).to include(I18n.t("services.reset_password_token_updater.token_was_updated"))
     expect(@user.reset_password_token).not_to eq(nil)
     expect(@user.reset_password_sent_at).not_to eq(nil)
+
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
+
+    mail = ActionMailer::Base.deliveries.last
+    expect(mail.to).to eq([@user.email])
+    expect(mail.subject).to eq(I18n.t("mailers.user_mailer.token_that_will_confirm_change_password"))
   end
 
   it "try to update token with incorrect email" do

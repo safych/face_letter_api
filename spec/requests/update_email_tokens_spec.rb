@@ -4,6 +4,7 @@ RSpec.describe "Update user's update_email_token", type: :request do
   before do
     @user = create(:user)
     @user_token = create(:user_token, user_id: @user.id)
+    ActionMailer::Base.deliveries.clear
   end
   
   it "successful token update" do
@@ -15,6 +16,12 @@ RSpec.describe "Update user's update_email_token", type: :request do
     expect(response.body).to include(I18n.t("services.update_email_token_updater.token_was_updated"))
     expect(@user.update_email_token).not_to eq(nil)
     expect(@user.update_email_sent_at).not_to eq(nil)
+
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
+
+    mail = ActionMailer::Base.deliveries.last
+    expect(mail.to).to eq([@user.email])
+    expect(mail.subject).to eq(I18n.t("mailers.user_mailer.token_that_will_confirm_change_email"))
   end
 
   it "try to update token with incorrect current_password" do
