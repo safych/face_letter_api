@@ -62,3 +62,14 @@ en:
     reset_password_token_updater:
       user_not_found: "User is not found"
       token_was_updated: "Token for reset password was updated successful!"
+
+    password_updater:
+      user_password_successful_updated: "The user's password updated successful!"
+      user_password_did_not_update: "The user's password didn't update"
+
+    email_updater:
+      user_not_found: "User is not found"
+      not_correct_token: "Token is not correct"
+      token_for_update_email_is_incorrect: "Token for update email is incorrect!"
+      user_email_successful_updated: "Email was updated successful!"
+      user_email_did_not_update: "Email wasn't update"
