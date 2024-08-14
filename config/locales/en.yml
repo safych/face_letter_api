@@ -66,6 +66,9 @@ en:
     password_updater:
       user_password_successful_updated: "The user's password updated successful!"
       user_password_did_not_update: "The user's password didn't update"
+      token_is_incorrect: "The token is incorrect"
+      user_not_found: "User wasn't found by this email"
+      passwords_do_not_match: "Passwords do not match"
 
     email_updater:
       user_not_found: "User is not found"
