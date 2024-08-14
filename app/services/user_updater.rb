@@ -1,4 +1,4 @@
-require "./app/services/validators/password_validatior.rb"
+require "./app/services/validators/password_validator.rb"
 
 class UserUpdater
   attr_reader :params, :token, :message, :user
